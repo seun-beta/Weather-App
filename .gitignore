@@ -4,8 +4,8 @@ config.py
 # ignore cpython file
 *.pyc
 
-#ignore bin file
+# ignore bin file
 *.bin
 
-#ignroe bin.py file
+# ignore bin.py file
 bin.py
