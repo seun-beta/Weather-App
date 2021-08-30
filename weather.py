@@ -2,8 +2,10 @@ import tkinter as tk
 from tkinter import font
 import requests
 import json
+import io
 
-import config
+with open("weather_api_file.bin", encoding="utf-8") as binary_file:
+    api_key = binary_file.read()
 
 HEIGHT = 500
 WIDTH = 600
@@ -23,7 +25,7 @@ def format_response(weather):
     return final_str
 
 def get_weather(city):
-    weather_key = config.api_key
+    weather_key = api_key
     url = 'https://api.openweathermap.org/data/2.5/weather'
     params = {'APPID':weather_key, 'q':city, 'units':'metric'}
     response = requests.get(url, params=params)
