@@ -3,6 +3,8 @@ from tkinter import font
 import requests
 import json
 
+import config
+
 HEIGHT = 500
 WIDTH = 600
 
@@ -21,7 +23,7 @@ def format_response(weather):
     return final_str
 
 def get_weather(city):
-    weather_key = 'a908e1368f9634482285ce6992ca1125'
+    weather_key = config.api_key
     url = 'https://api.openweathermap.org/data/2.5/weather'
     params = {'APPID':weather_key, 'q':city, 'units':'metric'}
     response = requests.get(url, params=params)
@@ -31,7 +33,7 @@ def get_weather(city):
 
 
 root = tk.Tk()
-root.top("Weather App")
+root.title("Weather App")
 
 canvas = tk.Canvas(root, height=HEIGHT, width = WIDTH)
 canvas.pack()
